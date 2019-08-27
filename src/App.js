@@ -3,10 +3,7 @@ import axios from "axios";
 import "./App.css";
 
 import {key} from './key';
-import PhotoOfTheDay from './Components/PhotoOfTheDay';
-import Title from './Components/Title';
-import Description from './Components/Description';
-import Date from './Components/Date';
+import PhotoOfTheDay from './Components/PhotoOfTheDay/PhotoOfTheDay';
 
 
 function App() {
@@ -21,10 +18,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Title title={nasaPhoto.title}/>
-      <Date date={nasaPhoto.date} />
-      <Description desc={nasaPhoto.explanation}/>
-      <PhotoOfTheDay photo={nasaPhoto.hdurl} />
+      <PhotoOfTheDay photo={nasaPhoto.hdurl} date={nasaPhoto.date} title={nasaPhoto.title} desc={nasaPhoto.explanation} />
     </div>
   );
 }
