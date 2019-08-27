@@ -6,13 +6,15 @@ import {key} from './key';
 import PhotoOfTheDay from './Components/PhotoOfTheDay';
 import Title from './Components/Title';
 import Description from './Components/Description';
+import Date from './Components/Date';
+
 
 function App() {
   const [nasaPhoto, setNasaPhoto ] = useState({});  //initiate state as an object
   const [keys] = useState(key);
 
   useEffect(() => {
-    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${key}`)
+    axios.get(`https://api.nasa.gov/planetary/apod?api_key=${keys}`)
         //date, hdurl, media_type, explanation, title, url
       .then(res => setNasaPhoto(res.data))
       .catch(err => console.log(err))
@@ -20,6 +22,7 @@ function App() {
   return (
     <div className="App">
       <Title title={nasaPhoto.title}/>
+      <Date date={nasaPhoto.date} />
       <Description desc={nasaPhoto.explanation}/>
       <PhotoOfTheDay photo={nasaPhoto.hdurl} />
     </div>
