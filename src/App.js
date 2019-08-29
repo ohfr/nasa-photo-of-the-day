@@ -5,6 +5,12 @@ import "./App.css";
 import {key} from './key';
 import PhotoOfTheDay from './Components/PhotoOfTheDay/PhotoOfTheDay';
 
+import styled from 'styled-components';
+
+
+const AppDiv = styled.div`
+  background: lightgray;
+`;
 
 function App() {
   const [nasaPhoto, setNasaPhoto ] = useState({});  //initiate state as an object
@@ -17,9 +23,9 @@ function App() {
       .catch(err => console.log(err))
   }, []);
   return (
-    <div className="App">
+    <AppDiv>
       <PhotoOfTheDay photo={nasaPhoto.hdurl} date={nasaPhoto.date} title={nasaPhoto.title} desc={nasaPhoto.explanation} />
-    </div>
+    </AppDiv>
   );
 }
 

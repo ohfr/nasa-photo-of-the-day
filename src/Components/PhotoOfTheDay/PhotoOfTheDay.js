@@ -3,16 +3,21 @@ import Date from './Date';
 import Description from './Description';
 import Title from './Title';
 import Photo from './Photo';
+import styled from 'styled-components';
 
+
+const WrapperDiv = styled.div`
+    text-align: center;
+`
 
 const PhotoOfTheDay = (props) => {
     return (
-        <div className="PhotoApp">
-            <Title title={props.title} />
+        <WrapperDiv>
+            <Title>{props.title}</Title>
             <Date date={props.date} />
-            <Description desc={props.desc} />
+            <Description>{props.desc}</Description>
             <Photo photo={props.photo} />
-        </div>
+        </WrapperDiv>
     )
 }
 export default PhotoOfTheDay;
